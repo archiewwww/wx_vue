@@ -1,0 +1,65 @@
+{
+  "id": "4021168",
+  "name": "wechat",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "7008952",
+      "name": "keyboard",
+      "font_class": "keyboard",
+      "unicode": "e706",
+      "unicode_decimal": 59142
+    },
+    {
+      "icon_id": "7009042",
+      "name": "search",
+      "font_class": "search",
+      "unicode": "e741",
+      "unicode_decimal": 59201
+    },
+    {
+      "icon_id": "7008891",
+      "name": "addressbook_fill",
+      "font_class": "addressbook_fill",
+      "unicode": "e6e2",
+      "unicode_decimal": 59106
+    },
+    {
+      "icon_id": "7008892",
+      "name": "addressbook",
+      "font_class": "addressbook",
+      "unicode": "e6e3",
+      "unicode_decimal": 59107
+    },
+    {
+      "icon_id": "7008950",
+      "name": "interactive_fill",
+      "font_class": "interactive_fill",
+      "unicode": "e704",
+      "unicode_decimal": 59140
+    },
+    {
+      "icon_id": "7008951",
+      "name": "interactive",
+      "font_class": "interactive",
+      "unicode": "e705",
+      "unicode_decimal": 59141
+    },
+    {
+      "icon_id": "7008963",
+      "name": "manage_fill",
+      "font_class": "manage_fill",
+      "unicode": "e70b",
+      "unicode_decimal": 59147
+    },
+    {
+      "icon_id": "7008964",
+      "name": "manage",
+      "font_class": "manage",
+      "unicode": "e70c",
+      "unicode_decimal": 59148
+    }
+  ]
+}
