@@ -65,3 +65,21 @@ routes:[
 ```
 yarn add sass 
 ```
+
+
+## 怎么自定义组件
+- 1: 在components 目录中（其实在任何目录都可以）编写 .vue 文件
+- 2: 在需要引入的页面中   import  这个文件对象
+- 3: 在这个页面的 vue 对象中（export default {})  , 必须有 components 这个键 (属性)
+- 4: components 这个键 的 值， 要求必须是一个对象。 例：
+
+```
+export defualt {
+    components:{
+        'wx-search': 之前引入的文件对象
+    }
+}
+```
+
+-5: 这个对象的键名，就是可以使用的标签名
+

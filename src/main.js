@@ -8,6 +8,7 @@ import Home from './pages/Index.vue'
 import tongxunlu from './pages/tongxunlu.vue'
 import shoucang from './pages/shoucang.vue'
 
+
 const akljdlks = createRouter({
     history:createWebHashHistory(),
     routes:[

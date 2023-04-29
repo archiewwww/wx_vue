@@ -33,8 +33,6 @@ div {
   justify-content: center;
   align-items: center;
   height: 100%;
-}
-#app > div {
   width: 1045px;
   height: 800px;
   background-color: aqua;

@@ -1,24 +1,5 @@
 <style lang="scss">
-    .left{
-        width: 68px;
-
-        background-color: rgb(46, 46, 46);
-        flex-direction: column;
-        align-items: center;
-        .portrait{
-            padding-top: 44px;
-            .portrait{
-                background-color: seagreen;
-                width: 46px;
-                height: 46px;
-            }
-        }
-        .icon{
-            font-size: 30px;
-            margin-top: 30px;
-            color: white;
-        }
-    }
+    
 
     .center{
         width: 310px;
@@ -99,7 +80,7 @@
                         }
                         .time{
                             font-size: 12px;
-                            letter-spacing: -2px;
+                            /* letter-spacing: -2px; */
                         }
                     }
                     .bottom{
@@ -158,91 +139,61 @@
 </style>
 
 <template>
-    <div id="app" class="flex">
-        <div class="flex">
-            <div class="flex left">
+    
+<div class="flex">
+
+    <div class="flex center">
+        <wx-search></wx-search>
+
+        <div class="flex chat">
+            <div class="flex chat-box" v-for="(item,index) in chatList" :key="'a'+index">
                 <div class="portrait">
                     <div class="portrait">
-
                     </div>
                 </div>
-                <div class="icon">
-                    <i class="iconfont">&#xe705;</i>
-                </div>
-                <div class="icon" @click="changePage('tongxunlu')">
-                    <i class="iconfont">&#xe6e3;</i>
-                </div>
-                <div class="icon" @click="changePage('shoucang')">
-                    <i class="iconfont">&#xe70c;</i>
-                </div>
-
-            </div>
-            <div class="flex center">
-                <div class="flex search">
-                    <div class="flex left">
-                        <i class="iconfont">&#xe741;</i>
-                        <input type="text" placeholder="搜索" v-model="name" @keyup="test" @blur="aaaaa" @focus="bbbbb">
-                        <i style="font-style: normal; font-size: 30px;" v-if="name" @click="clearInput">x</i>
-                    </div>
-                    <div class="flex right">
-                        十
-                    </div>
-                </div>
-                <div class="flex chat">
-      
-
-                    <div class="flex chat-box" v-for="(item,index) in chatList" :key="'a'+index">
-                        <div class="portrait">
-                            <div class="portrait">
-
-                            </div>
+                <div class="flex word">
+                    <div class="flex top">
+                        <div class="flex name">
+                            {{item.name}}
                         </div>
-                        <div class="flex word">
-                            <div class="flex top">
-                                <div class="flex name">
-                                    {{item.name}}
-                                </div>
-                                <div class="flex time">
-                                    13：18
-                                </div>
-                            </div>
-                            <div class="bottom">
-                                一二三四
-                            </div>
-    
+                        <div class="flex time">
+                            13:18
                         </div>
                     </div>
-
-                </div>
-            </div>
-            <div class="flex right">
-                <div class="flex top">
-                    <div>
-                        {{title}}
-                    </div>
-                </div>
-                <div class="center">
-
-                </div>
-                <div class="flex bottom">
-                    <div class="flex word" v-html="title2">
-                        
-                    </div>
-                    <div class="flex word">
-                        支付服务
-                    </div>
-                    <div class="flex icon">
-                        <i class="iconfont">&#xe706;</i>
+                    <div class="bottom">
+                        一二三四
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <router-link to="/about">个人页</router-link>
+    <div class="flex right">
+        <div class="flex top">
+            <div>
+                {{title}}
+            </div>
+        </div>
+        <div class="center">
+
+        </div>
+        <div class="flex bottom">
+            <div class="flex word" v-html="title2">
+                
+            </div>
+            <div class="flex word">
+                支付服务
+            </div>
+            <div class="flex icon">
+                <i class="iconfont">&#xe706;</i>
+            </div>
+        </div>
+    </div>
+</div>
+
 </template>
 
 <script>
-
+import wxSearch from '../components/wx-search.vue'
     export default{
         data(){
             return{
@@ -298,19 +249,12 @@
             }
         },
         methods:{
-            test:function(){
-                console.log(app.name)
-            },
             clearInput:function(){
                 app.name=""
             },
-            aaaaa:function(){
-                app.name=""
-            },
-            changePage(page){
-                this.$router.push('/' + page)
-            },
-        }
+        },
+        components:{
+            'wx-search':wxSearch,
+      },
     }
-    console.log(app.name)
 </script>

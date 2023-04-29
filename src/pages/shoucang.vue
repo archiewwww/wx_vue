@@ -1,24 +1,5 @@
 <style lang="scss">
-.left{
-    width: 68px;
 
-    background-color: rgb(46, 46, 46);
-    flex-direction: column;
-    align-items: center;
-    .portrait{
-        padding-top: 44px;
-        .portrait{
-            background-color: seagreen;
-            width: 46px;
-            height: 46px;
-        }
-    }
-    .icon{
-        font-size: 30px;
-        margin-top: 30px;
-        color: white;
-    }
-}
 
 .center{
     width: 310px;
@@ -81,6 +62,7 @@
         .center-center{
             background-color: rgb(247, 247, 247);
             flex-direction: column;
+            padding-bottom: 230px;
             .box{
                 padding-left: 20px;
                 padding-top: 20px;
@@ -98,9 +80,6 @@
                 border-color: rgb(232, 232, 232);
                 border-width: 1px;
             }
-        }
-        .white{
-            height: 1600px;
         }
         .center-bottom{
             width: 310px;
@@ -181,124 +160,96 @@
 </style>
 
 <template>
-    <div id="app" class="flex">
-        <div class="flex">
-            <div class="flex left">
-                <div class="portrait">
-                    <div class="portrait">
-
-                    </div>
-                </div>
-                <div class="icon" @click="liaotiankuang">
-                    <i class="iconfont">&#xe705;</i>
-                </div>
-                <div class="icon" @click="tongxunlu">
-                    <i class="iconfont">&#xe6e3;</i>
-                </div>
-                <div class="icon">
-                    <i class="iconfont">&#xe70c;</i>
-                </div>
-
-            </div>
+    <div id="app" class="flex">   
+        <div class="flex center">
+            <wx-search></wx-search>
             <div class="flex center">
-                <div class="flex search">
-                    <div class="flex left">
-                        <i class="iconfont">&#xe741;</i>
-                        <input type="text" placeholder="搜索">
-                    </div>
-                    <div class="flex right">
-                        十
+                <div class="flex guanli">
+                    <div class="flex">
+                        新建笔记
                     </div>
                 </div>
-                <div class="flex center">
-                    <div class="flex guanli">
-                        <div class="flex">
-                            新建笔记
-                        </div>
+                <div class="flex center-center">
+                    <div class="flex box">
+                        <i class="iconfont">&#xe70c;</i>
+                        <div>全部收藏</div>
                     </div>
-                    <div class="flex center-center">
-                        <div class="flex box">
-                            <i class="iconfont">&#xe70c;</i>
-                            <div>全部收藏</div>
-                        </div>
-                        <div class="flex box">
-                            <i class="iconfont">&#xe70c;</i>
-                            <div>最近使用</div>
-                        </div>
-                        <div class="flex box">
-                            <i class="iconfont">&#xe70c;</i>
-                            <div>链接</div>
-                        </div>
-                        <div class="flex box">
-                            <i class="iconfont">&#xe70c;</i>
-                            <div>图片与视频</div>
-                        </div>
-                        <div class="flex box">
-                            <i class="iconfont">&#xe70c;</i>
-                            <div>笔记</div>
-                        </div>
-                        <div class="flex box">
-                            <i class="iconfont">&#xe70c;</i>
-                            <div>文件</div>
-                        </div>
-                        <div class="flex box">
-                            <i class="iconfont">&#xe70c;</i>
-                            <div>聊天记录</div>
-                        </div>
-                        <div class="box-bottom">
-
-                        </div>
-                        <div class="flex box">
-                            <i class="iconfont">&#xe70c;</i>
-                            <div>标签</div>
-                            <div>^</div>
-                        </div>
+                    <div class="flex box">
+                        <i class="iconfont">&#xe70c;</i>
+                        <div>最近使用</div>
                     </div>
-                    <div class="white">
+                    <div class="flex box">
+                        <i class="iconfont">&#xe70c;</i>
+                        <div>链接</div>
+                    </div>
+                    <div class="flex box">
+                        <i class="iconfont">&#xe70c;</i>
+                        <div>图片与视频</div>
+                    </div>
+                    <div class="flex box">
+                        <i class="iconfont">&#xe70c;</i>
+                        <div>笔记</div>
+                    </div>
+                    <div class="flex box">
+                        <i class="iconfont">&#xe70c;</i>
+                        <div>文件</div>
+                    </div>
+                    <div class="flex box">
+                        <i class="iconfont">&#xe70c;</i>
+                        <div>聊天记录</div>
+                    </div>
+                    <div class="box-bottom">
 
                     </div>
-                    <div class="flex center-bottom">
-                        <div class="flex">
-                            已使用62.4MB，剩余1.9GB
-                        </div>
+                    <div class="flex box">
+                        <i class="iconfont">&#xe70c;</i>
+                        <div>标签</div>
+                        <div>^</div>
                     </div>
                 </div>
-            </div>
-            <div class="flex right">
-                <div class="flex right-top">
-                    <div>
-                        全部收藏
+                
+                <div class="flex center-bottom">
+                    <div class="flex">
+                        已使用62.4MB，剩余1.9GB
                     </div>
-                </div>
-                <div class="flex right-box">
-                    <div class="flex right-card">
-                        <div class="flex card-left">
-                            <div class="flex card-left-top">
-                                一二三四五六七八九十
-                            </div>
-                            <div class="card-left-center">
-                                PDF 74.7K
-                            </div>
-                            <div class="flex card-left-bottom">
-                                绿酒
-                            </div>
-                        </div>
-                        <div class="flex card-right">
-                            <div class="card-right-top">
-
-                            </div>
-                            <div class="card-right-bottom">
-                                2月19日
-                            </div>
-                        </div>
-                    </div>    
                 </div>
             </div>
         </div>
+        <div class="flex right">
+            <div class="flex right-top">
+                <div>
+                    全部收藏
+                </div>
+            </div>
+            <div class="flex right-box">
+                <div class="flex right-card">
+                    <div class="flex card-left">
+                        <div class="flex card-left-top">
+                            一二三四五六七八九十
+                        </div>
+                        <div class="card-left-center">
+                            PDF 74.7K
+                        </div>
+                        <div class="flex card-left-bottom">
+                            绿酒
+                        </div>
+                    </div>
+                    <div class="flex card-right">
+                        <div class="card-right-top">
+
+                        </div>
+                        <div class="card-right-bottom">
+                            2月19日
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </div>   
     </div>
 </template>
 
 <script>
+import wxSearch from '../components/wx-search.vue'
     export default({
         data(){
             return{
@@ -306,13 +257,10 @@
             }
         },
         methods:{
-            liaotiankuang(){
-                this.$router.push('/')
-            },
-            tongxunlu(){
-                this.$router.push('/liaotiankuang')
-                this.$router.push('/tongxunlu')
-            }
-        }
+           
+        },
+        components:{
+            'wx-search':wxSearch,
+        },
     })
 </script>

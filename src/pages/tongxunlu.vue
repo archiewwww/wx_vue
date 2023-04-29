@@ -1,24 +1,4 @@
 <style lang="scss">
-    .left{
-    width: 68px;
-
-    background-color: rgb(46, 46, 46);
-    flex-direction: column;
-    align-items: center;
-    .portrait{
-        padding-top: 44px;
-        .portrait{
-            background-color: seagreen;
-            width: 46px;
-            height: 46px;
-        }
-    }
-    .icon{
-        font-size: 30px;
-        margin-top: 30px;
-        color: white;
-    }
-}
 
 .center{
     width: 310px;
@@ -157,135 +137,110 @@
 
 <template>
     <div id="app" class="flex">
-        <div class="flex">
-            <div class="flex left">
-                <div class="portrait">
-                    <div class="portrait">
-
-                    </div>
-                </div>
-                <div class="icon" @click="liaotiankuang">
-                    <i class="iconfont">&#xe705;</i>
-                </div>
-                <div class="icon">
-                    <i class="iconfont">&#xe6e3;</i>
-                </div>
-                <div class="icon" @click="shoucang">
-                    <i class="iconfont">&#xe70c;</i>
-                </div>
-
-            </div>
+        <div class="flex center">
+            <wx-search></wx-search>
             <div class="flex center">
-                <div class="flex search">
-                    <div class="flex left">
-                        <i class="iconfont">&#xe741;</i>
-                        <input type="text" placeholder="搜索">
-                    </div>
-                    <div class="flex right">
-                        十
+                <div class="flex guanli">
+                    <div class="flex">
+                        通讯录管理
                     </div>
                 </div>
                 <div class="flex center">
-                    <div class="flex guanli">
-                        <div class="flex">
-                            通讯录管理
+                    <div class="flex card">
+                        <div class="flex top">
+                            新的朋友
                         </div>
-                    </div>
-                    <div class="flex center">
-                        <div class="flex card">
-                            <div class="flex top">
+                        <div class="flex bottom">
+                            <div class="flex portrait">
+
+                            </div>
+                            <div class="flex name">
                                 新的朋友
                             </div>
-                            <div class="flex bottom">
-                                <div class="flex portrait">
-    
-                                </div>
-                                <div class="flex name">
-                                    新的朋友
-                                </div>
-                            </div>
                         </div>
-                        <div class="flex card">
-                            <div class="flex top">
+                    </div>
+                    <div class="flex card">
+                        <div class="flex top">
+                            公众号
+                        </div>
+                        <div class="flex bottom">
+                            <div class="flex portrait">
+
+                            </div>
+                            <div class="flex name">
                                 公众号
                             </div>
-                            <div class="flex bottom">
-                                <div class="flex portrait">
-    
-                                </div>
-                                <div class="flex name">
-                                    公众号
-                                </div>
+                        </div>
+                    </div>
+                    <div class="flex card">
+                        <div class="flex top">
+                            群聊
+                        </div>
+                        <div class="flex bottom">
+                            <div class="flex portrait">
+
+                            </div>
+                            <div class="flex name">
+                                名媛群
                             </div>
                         </div>
-                        <div class="flex card">
-                            <div class="flex top">
-                                群聊
-                            </div>
-                            <div class="flex bottom">
-                                <div class="flex portrait">
-    
-                                </div>
-                                <div class="flex name">
-                                    名媛群
-                                </div>
-                            </div>
+                    </div>
+                    <div class="flex card">
+                        <div class="flex top">
+                            A
                         </div>
-                        <div class="flex card">
-                            <div class="flex top">
-                                A
+                        <div class="flex bottom">
+                            <div class="flex portrait">
+
                             </div>
-                            <div class="flex bottom">
-                                <div class="flex portrait">
-    
-                                </div>
-                                <div class="flex name">
-                                    新的朋友
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex card">
-                            <div class="flex top">
+                            <div class="flex name">
                                 新的朋友
                             </div>
-                            <div class="flex bottom">
-                                <div class="flex portrait">
-    
-                                </div>
-                                <div class="flex name">
-                                    新的朋友
-                                </div>
-                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="flex right">
-                <div class="flex top">
-                    <div>
-                        微信支付
-                    </div>
-                </div>
-                <div class="center">
+                    <div class="flex card">
+                        <div class="flex top">
+                            新的朋友
+                        </div>
+                        <div class="flex bottom">
+                            <div class="flex portrait">
 
-                </div>
-                <div class="flex bottom">
-                    <div class="flex word">
-                        我的账单
-                    </div>
-                    <div class="flex word">
-                        支付服务
-                    </div>
-                    <div class="flex icon">
-                        <i class="iconfont">&#xe706;</i>
+                            </div>
+                            <div class="flex name">
+                                新的朋友
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="flex right">
+            <div class="flex top">
+                <div>
+                    微信支付
+                </div>
+            </div>
+            <div class="center">
+
+            </div>
+            <div class="flex bottom">
+                <div class="flex word">
+                    我的账单
+                </div>
+                <div class="flex word">
+                    支付服务
+                </div>
+                <div class="flex icon">
+                    <i class="iconfont">&#xe706;</i>
+                </div>
+            </div>
+        </div>
     </div>
+    
 </template>
 
 <script>
+import wxSearch from '../components/wx-search.vue'
     export default({
         data(){
             return{
@@ -293,13 +248,11 @@
             }
         },
         methods:{
-            liaotiankuang(){
-                this.$router.push('/')
-            },
-            shoucang(){
-                this.$router.push('/shoucang')
-            }
-        }
+            
+        },
+        components:{
+            'wx-search':wxSearch,
+        },
     })
 
 
