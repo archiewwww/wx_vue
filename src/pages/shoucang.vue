@@ -2,10 +2,9 @@
 .page-shoucang{
 
     .center{
-        overflow-y: scroll;
-        overflow-x: hidden;
         background-color: rgb(247, 247, 247);
         width: 310px;
+        flex-direction: column;
         .guanli{
             background-color: rgb(247, 247, 247);
             justify-content: center;
@@ -20,6 +19,8 @@
             }
         }
         .center-center{
+            /* overflow-y: scroll;
+            overflow-x: hidden; */
             background-color: rgb(247, 247, 247);
             flex-direction: column;
             padding-bottom: 230px;
@@ -43,7 +44,6 @@
         }
         .center-bottom{
             width: 310px;
-            height: 300px;
             background-color: rgb(247, 247, 247);
             justify-content: center;
         }

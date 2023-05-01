@@ -61,7 +61,7 @@
             <!-- 搜索框 -->
             <input type="text" placeholder="搜索" v-model="name" @keyup="test">
             <!-- 叉 -->
-            <i style="font-style: normal; font-size: 30px;" v-if="name" @click="clearInput">x</i>
+            <i style="margin-right:8px; font-style: normal; font-size: 20px;" v-if="name" @click="clearInput">x</i>
         </div>
         <!-- 加号 -->
         <div class="flex right">

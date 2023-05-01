@@ -118,11 +118,11 @@
                             {{item.name}}
                         </div>
                         <div class="flex time">
-                            13:18
+                            {{item.time}}
                         </div>
                     </div>
                     <div class="bottom">
-                        一二三四
+                        {{item.content}}
                     </div>
                 </div>
             </div>
@@ -164,48 +164,70 @@ import wxCenter from '../components/wx-center.vue'
                 title2:"<div style=\"color:red\">我的账单</div>",
                 chatList:[
                     {
-                        name:'埃里克森大家分厘卡',
-                        beizhu:'李四',
+                        name:'关姓女士',
+                        beizhu:'啵啵啵大宝',
+                        time:'13:18',
+                        content:'啵啵',
+                    },
+                    {
+                        name:'孙姓女士',
+                        beizhu:'知性少女',
+                        time:'13:18',
+                        content:'',
                     },
                     {
                         name:'张三',
-                        beizhu:''
+                        beizhu:'',
+                        time:'13:18',
+                        content:'',
+                    },
+                    {
+                        name:'李四',
+                        beizhu:'',
+                        time:'13:18',
+                        content:'',
+                    },
+                    {
+                        name:'王二麻子',
+                        beizhu:'',
+                        time:'13:18',
+                        content:'',
                     },
                     {
                         name:'张三',
-                        beizhu:''
+                        beizhu:'',
+                        time:'13:18',
+                        content:'',
+                    },
+                    {
+                        name:'李四',
+                        beizhu:'',
+                        time:'13:18',
+                        content:'',
+                    },
+                    {
+                        name:'王二麻子',
+                        beizhu:'',
+                        time:'13:18',
+                        content:'',
                     },
                     {
                         name:'张三',
-                        beizhu:''
+                        beizhu:'',
+                        time:'13:18',
+                        content:'',
                     },
                     {
-                        name:'张三',
-                        beizhu:''
+                        name:'李四',
+                        beizhu:'',
+                        time:'13:18',
+                        content:'',
                     },
                     {
-                        name:'张三',
-                        beizhu:''
-                    },
-                    {
-                        name:'张三',
-                        beizhu:''
-                    },
-                    {
-                        name:'张三',
-                        beizhu:''
-                    },
-                    {
-                        name:'张三',
-                        beizhu:''
-                    },
-                    {
-                        name:'张三',
-                        beizhu:''
-                    },
-                    {
-                        name:'张三',
-                        beizhu:''
+                        name:'王二麻子',
+                        beizhu:'',
+                        time:'13:18',
+                        content:'',
                     },
                 ]
             }
