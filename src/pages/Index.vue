@@ -1,54 +1,54 @@
 <style lang="scss">
-    
-
-    .center{
+/* 首页 */
+.page-index{      
+    /* 聊天列表 */  
+    .chat{
+        background-color: plum;
         width: 310px;
-        height: 800px;
+        height: 720px;
         flex-direction: column;
-        .chat{
-            background-color: plum;
+        overflow: scroll;
+        overflow-x: hidden;
+        .chat-box{
+            background-color: rgb(230, 229, 227);
             width: 310px;
-            height: 720px;
-            flex-direction: column;
-            overflow: scroll;
-            overflow-x: hidden;
-            .chat-box{
-                background-color: rgb(230, 229, 227);
-                width: 310px;
-                height: 80px;
-                flex-direction: row;
+            height: 80px;
+            flex-direction: row;
+            /* 聊天列表头像 */
+            .portrait{
+                padding: 14px;
                 .portrait{
-                    padding: 14px;
-                    .portrait{
-                        background-color: darkorange;
-                        width: 52px;
-                        height: 52px;
-                    }
-                }
-                .word{
-                    width: 220px;
-                    flex-direction: column;
-                    padding: 10px 18px 12px 0;
-                    .top{
-                        justify-content: space-between;
-                        padding: 6px 0;
-                        .name{
-                            font-size: 18px;
-                        }
-                        .time{
-                            font-size: 12px;
-                            /* letter-spacing: -2px; */
-                        }
-                    }
-                    .bottom{
-                        font-size: 14px;
-                    }
+                    background-color: darkorange;
+                    width: 52px;
+                    height: 52px;
                 }
             }
-
+            /* 聊天列表文字 */
+            .word{
+                width: 220px;
+                flex-direction: column;
+                padding: 10px 18px 12px 0;
+                .top{
+                    justify-content: space-between;
+                    padding: 6px 0;
+                    .name{
+                        font-size: 18px;
+                    }
+                    .time{
+                        font-size: 12px;
+                        /* letter-spacing: -2px; */
+                    }
+                }
+                .bottom{
+                    font-size: 14px;
+                }
+            }
+            &:hover{
+                background-color: rgb(216, 216, 216);
+            }
         }
-    }
 
+    }
     .right{
         width: 667px;
         height: 800px;
@@ -93,21 +93,22 @@
             }
         }
     }
+}
 </style>
 
 <template>
-    
-<div class="flex">
-
-    <div class="flex center">
-        <wx-search></wx-search>
-
+<!-- 首页 -->    
+<div class="flex page-index">
+    <wx-center>
+        <!-- 聊天列表 -->
         <div class="flex chat">
             <div class="flex chat-box" v-for="(item,index) in chatList" :key="'a'+index">
+                <!-- 聊天列表头像 -->
                 <div class="portrait">
                     <div class="portrait">
                     </div>
                 </div>
+                <!-- 聊天列表文字 -->
                 <div class="flex word">
                     <div class="flex top">
                         <div class="flex name">
@@ -123,7 +124,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </wx-center>
     <div class="flex right">
         <div class="flex top">
             <div>
@@ -150,7 +151,7 @@
 </template>
 
 <script>
-import wxSearch from '../components/wx-search.vue'
+import wxCenter from '../components/wx-center.vue'
     export default{
         data(){
             return{
@@ -211,7 +212,7 @@ import wxSearch from '../components/wx-search.vue'
             },
         },
         components:{
-            'wx-search':wxSearch,
+            'wx-center':wxCenter
       },
     }
 </script>

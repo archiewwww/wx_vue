@@ -1,11 +1,6 @@
 <style lang="scss">
+.page-shoucang{
 
-
-.center{
-    width: 310px;
-    height: 800px;
-    flex-direction: column;
-    
     .center{
         overflow-y: scroll;
         overflow-x: hidden;
@@ -54,6 +49,7 @@
         }
     }
 }
+
 
 
 
@@ -125,60 +121,62 @@
 </style>
 
 <template>
-    <div id="app" class="flex">   
+    <div class="flex page-shoucang">   
         <div class="flex center">
-            <wx-search></wx-search>
-            <div class="flex center">
-                <div class="flex guanli">
-                    <div class="flex">
-                        新建笔记
+            <wx-center>
+                <div class="flex center">
+                    <div class="flex guanli">
+                        <div class="flex">
+                            新建笔记
+                        </div>
+                    </div>
+                    <div class="flex center-center">
+                        <div class="flex box">
+                            <i class="iconfont">&#xe70c;</i>
+                            <div>全部收藏</div>
+                        </div>
+                        <div class="flex box">
+                            <i class="iconfont">&#xe70c;</i>
+                            <div>最近使用</div>
+                        </div>
+                        <div class="flex box">
+                            <i class="iconfont">&#xe70c;</i>
+                            <div>链接</div>
+                        </div>
+                        <div class="flex box">
+                            <i class="iconfont">&#xe70c;</i>
+                            <div>图片与视频</div>
+                        </div>
+                        <div class="flex box">
+                            <i class="iconfont">&#xe70c;</i>
+                            <div>笔记</div>
+                        </div>
+                        <div class="flex box">
+                            <i class="iconfont">&#xe70c;</i>
+                            <div>文件</div>
+                        </div>
+                        <div class="flex box">
+                            <i class="iconfont">&#xe70c;</i>
+                            <div>聊天记录</div>
+                        </div>
+                        <div class="box-bottom">
+    
+                        </div>
+                        <div class="flex box">
+                            <i class="iconfont">&#xe70c;</i>
+                            <div>标签</div>
+                            <div>^</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex center-bottom">
+                        <div class="flex">
+                            已使用62.4MB，剩余1.9GB
+                        </div>
                     </div>
                 </div>
-                <div class="flex center-center">
-                    <div class="flex box">
-                        <i class="iconfont">&#xe70c;</i>
-                        <div>全部收藏</div>
-                    </div>
-                    <div class="flex box">
-                        <i class="iconfont">&#xe70c;</i>
-                        <div>最近使用</div>
-                    </div>
-                    <div class="flex box">
-                        <i class="iconfont">&#xe70c;</i>
-                        <div>链接</div>
-                    </div>
-                    <div class="flex box">
-                        <i class="iconfont">&#xe70c;</i>
-                        <div>图片与视频</div>
-                    </div>
-                    <div class="flex box">
-                        <i class="iconfont">&#xe70c;</i>
-                        <div>笔记</div>
-                    </div>
-                    <div class="flex box">
-                        <i class="iconfont">&#xe70c;</i>
-                        <div>文件</div>
-                    </div>
-                    <div class="flex box">
-                        <i class="iconfont">&#xe70c;</i>
-                        <div>聊天记录</div>
-                    </div>
-                    <div class="box-bottom">
 
-                    </div>
-                    <div class="flex box">
-                        <i class="iconfont">&#xe70c;</i>
-                        <div>标签</div>
-                        <div>^</div>
-                    </div>
-                </div>
-                
-                <div class="flex center-bottom">
-                    <div class="flex">
-                        已使用62.4MB，剩余1.9GB
-                    </div>
-                </div>
-            </div>
+            </wx-center>
         </div>
         <div class="flex right">
             <div class="flex right-top">
@@ -214,7 +212,7 @@
 </template>
 
 <script>
-import wxSearch from '../components/wx-search.vue'
+import wxCenter from '../components/wx-center.vue'
     export default({
         data(){
             return{
@@ -225,7 +223,7 @@ import wxSearch from '../components/wx-search.vue'
            
         },
         components:{
-            'wx-search':wxSearch,
+            'wx-center':wxCenter,
         },
     })
 </script>
