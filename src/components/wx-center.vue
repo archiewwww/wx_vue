@@ -19,11 +19,14 @@
             height: 30px;
             border-radius: 8px;
             flex-direction: row;
+            /* 放大镜 */
             .iconfont{
                 width: 20px;
                 font-size: 20px;
-
+                padding-top: 4px;
+                padding-left:2px;
             }
+            /* 搜索框 */
             input{
                 background-color: transparent;
                 width: 220px;
@@ -53,8 +56,11 @@
     <div class="flex search">
         <!-- 搜索栏 -->
         <div class="flex left">
+            <!-- 放大镜 -->
             <i class="iconfont">&#xe741;</i>
+            <!-- 搜索框 -->
             <input type="text" placeholder="搜索" v-model="name" @keyup="test">
+            <!-- 叉 -->
             <i style="font-style: normal; font-size: 30px;" v-if="name" @click="clearInput">x</i>
         </div>
         <!-- 加号 -->

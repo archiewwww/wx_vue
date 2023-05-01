@@ -46,6 +46,9 @@
             &:hover{
                 background-color: rgb(216, 216, 216);
             }
+            &.active{
+                background-color: rgb(196, 196, 196);
+            }
         }
 
     }
@@ -102,7 +105,7 @@
     <wx-center>
         <!-- 聊天列表 -->
         <div class="flex chat">
-            <div class="flex chat-box" v-for="(item,index) in chatList" :key="'a'+index">
+            <div class="flex chat-box" v-for="(item,index) in chatList" :key="'a'+index"  @click="openCard(index)" :class="{'active':cardId == index}">
                 <!-- 聊天列表头像 -->
                 <div class="portrait">
                     <div class="portrait">
@@ -155,6 +158,7 @@ import wxCenter from '../components/wx-center.vue'
     export default{
         data(){
             return{
+                cardId:-1,
                 name:"",
                 title:"微信支付",
                 title2:"<div style=\"color:red\">我的账单</div>",
@@ -210,6 +214,9 @@ import wxCenter from '../components/wx-center.vue'
             clearInput:function(){
                 app.name=""
             },
+            openCard(index){
+                this.cardId = index
+            }
         },
         components:{
             'wx-center':wxCenter
