@@ -56,6 +56,9 @@
                     &:hover{
                         background-color: rgb(216, 216, 216);
                     }
+                    &.active{
+                        background-color: rgb(196, 196, 196);
+                    }
                 }
             }
         }
@@ -126,7 +129,7 @@
                     <div class="flex top">
                         A
                     </div>
-                    <div class="flex card">
+                    <div class="flex card" @click="openCard(0)" :class="cardId == 0 ? 'active' : ''">
                         <div class="flex portrait">
 
                         </div>
@@ -134,7 +137,7 @@
                             新的朋友
                         </div>
                     </div>
-                    <div class="flex card">
+                    <div class="flex card" @click="openCard(1)" :class="cardId == 1 ? 'active' : ''">
                         <div class="flex portrait">
 
                         </div>
@@ -177,11 +180,13 @@ import wxCenter from '../components/wx-center.vue'
     export default {
         data(){
             return{
-                
+                cardId:-1
             }
         },
         methods:{
-            
+            openCard(id){
+                this.cardId = id
+            }
         },
         components:{
             'wx-center':wxCenter,
