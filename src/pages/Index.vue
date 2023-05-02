@@ -17,7 +17,7 @@
             /* 聊天列表头像 */
             .portrait{
                 padding: 14px;
-                .portrait{
+                img{
                     background-color: darkorange;
                     width: 52px;
                     height: 52px;
@@ -25,6 +25,7 @@
             }
             /* 聊天列表文字 */
             .word{
+                user-select: none;
                 width: 220px;
                 flex-direction: column;
                 padding: 10px 18px 12px 0;
@@ -40,6 +41,7 @@
                     }
                 }
                 .bottom{
+                    overflow: hidden;
                     font-size: 14px;
                 }
             }
@@ -52,6 +54,7 @@
         }
 
     }
+    /* 右侧 */
     .right{
         width: 667px;
         height: 800px;
@@ -108,8 +111,7 @@
             <div class="flex chat-box" v-for="(item,index) in chatList" :key="'a'+index"  @click="openCard(index)" :class="{'active':cardId == index}">
                 <!-- 聊天列表头像 -->
                 <div class="portrait">
-                    <div class="portrait">
-                    </div>
+                    <img :src="item.portrait" alt="">
                 </div>
                 <!-- 聊天列表文字 -->
                 <div class="flex word">
@@ -118,7 +120,7 @@
                             {{item.name}}
                         </div>
                         <div class="flex time">
-                            {{item.time}}
+                            {{item.time | formatDate }}
                         </div>
                     </div>
                     <div class="bottom">
@@ -128,6 +130,7 @@
             </div>
         </div>
     </wx-center>
+    <!-- 右侧 -->
     <div class="flex right">
         <div class="flex top">
             <div>
@@ -155,93 +158,58 @@
 
 <script>
 import wxCenter from '../components/wx-center.vue'
-    export default{
-        data(){
-            return{
-                cardId:-1,
-                name:"",
-                title:"微信支付",
-                title2:"<div style=\"color:red\">我的账单</div>",
-                chatList:[
-                    {
-                        name:'关姓女士',
-                        beizhu:'啵啵啵大宝',
-                        time:'2022年1月1日',
-                        content:'6',
-                    },
-                    {
-                        name:'孙姓女士',
-                        beizhu:'知性少女',
-                        time:'13:18',
-                        content:'啵啵',
-                    },
-                    {
-                        name:'张三',
-                        beizhu:'',
-                        time:'13:18',
-                        content:'啵啵',
-                    },
-                    {
-                        name:'李四',
-                        beizhu:'',
-                        time:'13:18',
-                        content:'啵啵',
-                    },
-                    {
-                        name:'王二麻子',
-                        beizhu:'',
-                        time:'13:18',
-                        content:'啵啵',
-                    },
-                    {
-                        name:'张三',
-                        beizhu:'',
-                        time:'13:18',
-                        content:'啵啵',
-                    },
-                    {
-                        name:'李四',
-                        beizhu:'',
-                        time:'13:18',
-                        content:'啵啵',
-                    },
-                    {
-                        name:'王二麻子',
-                        beizhu:'',
-                        time:'13:18',
-                        content:'啵啵',
-                    },
-                    {
-                        name:'张三',
-                        beizhu:'',
-                        time:'13:18',
-                        content:'啵啵',
-                    },
-                    {
-                        name:'李四',
-                        beizhu:'',
-                        time:'13:18',
-                        content:'啵啵',
-                    },
-                    {
-                        name:'王二麻子',
-                        beizhu:'',
-                        time:'13:18',
-                        content:'啵啵',
-                    },
-                ]
-            }
+import axios from 'axios'
+export default {
+    created(){
+        axios.get('http://13.213.37.194/api/chat/list').then(response =>{
+            console.log(response.data)
+            this.chatList = response.data
+        })
+    },
+    data(){
+        return{
+            cardId:-1,
+            portrait:'',
+            title:"微信支付",
+            title2:"<div style=\"color:red\">我的账单</div>",
+            chatList:[
+                {
+                    name:'',
+                    beizhu:'',
+                    time:'',
+                    content:'',
+                    portrait:"",
+                },
+            ]
+        }
+    },
+    filters:{
+        formatDate:(value)=>{
+            let date = new Date(value);
+            let y = date.getFullYear();
+            let MM = date.getMonth() + 1;
+            MM = MM < 10 ? "0" + MM : MM;
+            let d = date.getDate();
+            d = d < 10 ? "0" + d : d;
+            let h = date.getHours();
+            h = h < 10 ? "0" + h : h;
+            let m = date.getMinutes();
+            m = m < 10 ? "0" + m : m;
+            let s = date.getSeconds();
+            s = s < 10 ? "0" + s : s;
+            return y + "-" + MM + "-" + d + " " + h + ":" + m + ":" + s;
+        }
+    },
+    methods:{
+        clearInput:function(){
+            app.name=""
         },
-        methods:{
-            clearInput:function(){
-                app.name=""
-            },
-            openCard(index){
-                this.cardId = index
-            }
-        },
-        components:{
-            'wx-center':wxCenter
-      },
-    }
+        openCard(index){
+            this.cardId = index
+        }
+    },
+    components:{
+        'wx-center':wxCenter
+    },
+}
 </script>

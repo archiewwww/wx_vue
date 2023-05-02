@@ -11,7 +11,7 @@
           /* 左侧头像 */
           .portrait{
               padding-top: 44px;
-              .portrait{
+              img{
                   background-color: seagreen;
                   width: 46px;
                   height: 46px;
@@ -19,6 +19,7 @@
           }
           /* 左侧图标 */
           .icon{
+              user-select: none;
               font-size: 30px;
               margin-top: 30px;
               color: white;
@@ -35,8 +36,7 @@
     <div class="flex appleft">
       <!-- 左侧头像 -->
       <div class="portrait">
-        <div class="portrait">
-        </div>
+        <img :src="portrait" alt="">
       </div>
       <!-- 左侧图标 -->
       <div class="icon" @click="changePage('')">
@@ -59,17 +59,25 @@
 
 
   <script>
-
-
-
+    import axios from 'axios'
     export default {
+      created(){
+        axios.get('http://13.213.37.194/api/userinfo').then(response => {
+          this.portrait = response.data.portrait
+        })
+      },
+      data(){
+        return{
+          portrait:''
+
+        }
+      },
       methods:{
         changePage(page){
           this.$router.push('/' + page)
         }
-      },   
-      
-
+      },
+          
 
     }
   </script>
