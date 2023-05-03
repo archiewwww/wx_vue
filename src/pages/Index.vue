@@ -120,7 +120,7 @@
                             {{item.name}}
                         </div>
                         <div class="flex time">
-                            {{item.time | formatDate }}
+                            {{item.time/*  | formatDate  */}}
                         </div>
                     </div>
                     <div class="bottom">
@@ -183,7 +183,7 @@ export default {
             ]
         }
     },
-    filters:{
+    /* filters:{
         formatDate:(value)=>{
             let date = new Date(value);
             let y = date.getFullYear();
@@ -199,7 +199,7 @@ export default {
             s = s < 10 ? "0" + s : s;
             return y + "-" + MM + "-" + d + " " + h + ":" + m + ":" + s;
         }
-    },
+    }, */
     methods:{
         clearInput:function(){
             app.name=""

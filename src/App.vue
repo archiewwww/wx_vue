@@ -18,11 +18,20 @@
               }
           }
           /* 左侧图标 */
-          .icon{
-              user-select: none;
-              font-size: 30px;
-              margin-top: 30px;
-              color: white;
+          .page{
+
+            .icon{
+                user-select: none;
+                font-size: 30px;
+                margin-top: 30px;
+                color: white;
+                &:hover{
+                  color: blue;
+                }
+                &.active{
+                  color: red;
+                }
+            }
           }
   }
 }
@@ -39,14 +48,16 @@
         <img :src="portrait" alt="">
       </div>
       <!-- 左侧图标 -->
-      <div class="icon" @click="changePage('')">
-        <i class="iconfont">&#xe705;</i>
-      </div>
-      <div class="icon" @click="changePage('tongxunlu')">
-        <i class="iconfont">&#xe6e3;</i>
-      </div>
-      <div class="icon" @click="changePage('shoucang')">
-        <i class="iconfont">&#xe70c;</i>
+      <div class="page">
+        <div class="icon" @click="changePage('')" :class="{'active':pageId == index}">
+          <i class="iconfont">&#xe705;</i>
+        </div>
+        <div class="icon" @click="changePage('tongxunlu')" :class="{'active':pageId == index}">
+          <i class="iconfont">&#xe6e3;</i>
+        </div>
+        <div class="icon" @click="changePage('shoucang')" :class="{'active':pageId == index}">
+          <i class="iconfont">&#xe70c;</i>
+        </div>
       </div>
   </div>
 
@@ -75,7 +86,8 @@
       methods:{
         changePage(page){
           this.$router.push('/' + page)
-        }
+          this.pageId = index
+        },
       },
           
 

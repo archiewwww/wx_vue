@@ -129,20 +129,12 @@
                     <div class="flex top">
                         A
                     </div>
-                    <div class="flex card" @click="openCard(0)" :class="cardId == 0 ? 'active' : ''">
+                    <div class="flex card" v-for="(item,index) in contactList" :key="index" @click="openCard(index)" :class="{'active':cardId == index}">
                         <div class="flex portrait">
-
+                            <img :src="item.portrait" alt="">
                         </div>
                         <div class="flex name">
-                            新的朋友
-                        </div>
-                    </div>
-                    <div class="flex card" @click="openCard(1)" :class="cardId == 1 ? 'active' : ''">
-                        <div class="flex portrait">
-
-                        </div>
-                        <div class="flex name">
-                            新的朋友
+                            {{item.name}}
                         </div>
                     </div>
                 </div>
@@ -177,10 +169,24 @@
 
 <script>
 import wxCenter from '../components/wx-center.vue'
+import axios from 'axios'
     export default {
+        created(){
+            axios.get('http://13.213.37.194/api/chat/contact').then(response =>{
+                this.contactList = response.data
+                console.log(response)
+            })
+        },
         data(){
             return{
-                cardId:-1
+                cardId:-1,
+                contactList:[
+                    {
+                        name:'',
+                        portrait:'',
+                    }
+                ]
+
             }
         },
         methods:{
