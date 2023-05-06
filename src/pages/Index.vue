@@ -155,7 +155,7 @@
     <wx-center>
         <!-- 聊天列表 -->
         <div class="flex chat">
-            <div class="flex chat-box" v-for="(item,index) in chatList2" :key="'a'+index"  @click="openCard(index)" :class="{'active':cardId == index,'chat-top':item.top}">
+            <div class="flex chat-box" v-for="(item,index) in chatList2" :key="'a'+index"  @click="openCard(index)" :class="{'active':cardIndex == index,'chat-top':item.top}">
                 <!-- 聊天列表头像 -->
                 <div class="portrait">
                     <img :src="item.portrait" alt="">
@@ -178,7 +178,7 @@
         </div>
     </wx-center>
     <!-- 右侧 -->
-    <wx-right :title="test"></wx-right>
+    <wx-right v-if="cardObject" :title="cardObject.name" :chatID="cardObject.connect_id" ></wx-right>
 </div>
 
 </template>
@@ -192,35 +192,29 @@ import axios from 'axios'
 export default {
     created(){
         axios.get('http://13.213.37.194/api/chat/list').then(response =>{
-            console.log(response.data)
             this.chatList = response.data
         })
-
         this.$parent.$parent.changePageId('')
     },
 
     data(){
         return{
-            cardId:-1,
-            portrait:'',
-            title:"微信支付",
-            title2:"<div style=\"color:red\">我的账单</div>",
-            chatList:[],
-            
+            /* 同步当前选中卡片的索引，默认-1（因为第一项选中是 0） */
+            cardIndex:-1,
 
-            test:'',
+            /* 当前会话列表（原始） */
+            chatList:[],
+
+            /* 你这三个data根本没有用阿 ↓ */
+            
+            // portrait:'',
+            // title:"微信支付",
+            // title2:"<div style=\"color:red\">我的账单</div>",            
         }
     },
     methods:{
-        clearInput:function(){
-            app.name=""
-        },
         openCard(index){
-
-            const card = this.chatList2[index]
-            this.test = card.name
-
-            this.cardId = index
+            this.cardIndex = index
         },
         formatDate(value){
 
@@ -262,6 +256,7 @@ export default {
         },
     },
     computed:{
+        /* 将会话列表排序 */
         chatList2(){
             let result = []
             if(Array.isArray(this.chatList) && this.chatList.length){
@@ -278,7 +273,15 @@ export default {
                 console.dir(result)
             }
             return result
-        }
+        },
+        /* 当前选中的卡片对象 */
+        cardObject(){
+            let result = false
+            if(this.cardIndex >= 0){
+                result = this.chatList2[this.cardIndex]
+            }
+            return result
+        },
     },
     components:{
         'wx-center':wxCenter,

@@ -34,9 +34,9 @@
 <script>
 import axios from 'axios'
 export default {
-    props:['title'],
+    props:['title','cardID'],
     created(){
-        axios.get('http://13.213.37.194/api/chat/message').then(response =>{
+        axios.get('http://13.213.37.194/api/chat/message/' + this.cardID).then(response =>{
             console.log(response.data)
             this.message = response.data
         })
