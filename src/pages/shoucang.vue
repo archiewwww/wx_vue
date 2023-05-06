@@ -214,6 +214,9 @@
 <script>
 import wxCenter from '../components/wx-center.vue'
     export default({
+        created(){
+            this.$parent.$parent.changePageId('shoucang')
+        },
         data(){
             return{
 

@@ -18,6 +18,7 @@ const akljdlks = createRouter({
         },
         {
             path:'/tongxunlu',
+            name:'xxx',
             component:tongxunlu,
         },
         {

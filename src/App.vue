@@ -25,11 +25,8 @@
                 font-size: 30px;
                 margin-top: 30px;
                 color: white;
-                &:hover{
-                  color: blue;
-                }
                 &.active{
-                  color: red;
+                  color: green;
                 }
             }
           }
@@ -49,13 +46,13 @@
       </div>
       <!-- 左侧图标 -->
       <div class="page">
-        <div class="icon" @click="changePage('')" :class="{'active':pageId == index}">
+        <div class="icon" @click="changePage('')" :class="{'active':pageId == ''}">
           <i class="iconfont">&#xe705;</i>
         </div>
-        <div class="icon" @click="changePage('tongxunlu')" :class="{'active':pageId == index}">
+        <div class="icon" @click="changePage('tongxunlu')" :class="{'active':pageId == 'tongxunlu'}">
           <i class="iconfont">&#xe6e3;</i>
         </div>
-        <div class="icon" @click="changePage('shoucang')" :class="{'active':pageId == index}">
+        <div class="icon" @click="changePage('shoucang')" :class="{'active':pageId == 'shoucang'}">
           <i class="iconfont">&#xe70c;</i>
         </div>
       </div>
@@ -67,9 +64,15 @@
 </div>
 
 </template>
+<!-- 説起來你這個地方，能寫成這樣，終究是你不理解怎麽同時調用兩個方法
 
+沒有辦法同時調用兩個方法
 
-  <script>
+只能分順序調
+
+就是在一個方法裏再去調用另一個方法
+ -->
+<script>
     import axios from 'axios'
     export default {
       created(){
@@ -79,17 +82,25 @@
       },
       data(){
         return{
-          portrait:''
-
+          portrait:'',
+          pageId:'',
         }
       },
       methods:{
         changePage(page){
+          // page 是一個字符串對吧？ 你這裏可以不需要再新建數字型的值了
+          // 因爲 ： class 那裏，究其根本只是要一個獨一無二的值而已
           this.$router.push('/' + page)
-          this.pageId = index
+
+          // ↓ 明白了嗎
+          // this.changePageId(page)
+        },
+        // 假設說這裏有另一個方法
+        changePageId(id){
+          // 這個方法即便不在 html 裏調用，也可以在methods的其他成員裏通過this調用
+          this.pageId = id
         },
       },
-          
 
     }
   </script>
